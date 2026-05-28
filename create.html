@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Thread — VOID FORUM</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="forum.html" class="navbar-logo">
+      VOID <span>FORUM</span>
+    </a>
+    <div class="navbar-right" id="nav-right">
+      <!-- Filled by auth.js -->
+    </div>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container">
+
+    <a href="forum.html" class="back-link">← Back to Forum</a>
+
+    <div class="page-header">
+      <div>
+        <div class="page-title">New <span class="accent">Transmission</span></div>
+        <div class="page-subtitle">// BROADCAST TO ALL MEMBERS //</div>
+      </div>
+    </div>
+
+    <!-- The create thread form -->
+    <div class="create-box">
+
+      <!-- Message shown after success or on error -->
+      <div id="create-message" class="message hidden"></div>
+
+      <!-- Thread Title -->
+      <div class="form-group">
+        <label for="thread-title">Thread Title</label>
+        <input
+          type="text"
+          id="thread-title"
+          placeholder="What is this thread about?"
+          maxlength="200"
+        />
+      </div>
+
+      <!-- Thread Content -->
+      <div class="form-group">
+        <label for="thread-content">Content</label>
+        <textarea
+          id="thread-content"
+          placeholder="Write your full message here..."
+          style="min-height: 200px;"
+        ></textarea>
+      </div>
+	  <div class="form-group">
+
+  <label for="thread-media">
+    Attach Image / Video
+  </label>
+
+  <input
+    type="file"
+    id="thread-media"
+    accept="image/*,video/*"
+    style="
+      width:100%;
+      padding:12px;
+      background:#111;
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:10px;
+      color:white;
+      margin-top:8px;
+    "
+  />
+
+</div>
+
+      <!-- Submit Button -->
+      <div style="display:flex; gap:12px; align-items:center;">
+        <button
+          class="btn btn-primary"
+          id="submit-btn"
+          onclick="submitThread()"
+        >
+          Publish Thread →
+        </button>
+        <a href="index.html" class="btn">Cancel</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    VOID FORUM // PHASE 1 // ALL TRANSMISSIONS MONITORED
+  </footer>
+
+  <!-- Appwrite SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@16/dist/iife/sdk.min.js"></script>
+  <!-- Our files -->
+  <script src="js/appwrite.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
+  <script src="js/create.js?v=5"></script>
+</body>
+</html>

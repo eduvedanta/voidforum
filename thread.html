@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thread — VOID FORUM</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="forum.html" class="navbar-logo">
+      VOID <span>FORUM</span>
+    </a>
+    <div class="navbar-right" id="nav-right">
+      <!-- Filled by auth.js -->
+    </div>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container">
+
+    <a href="forum.html" class="back-link">← All Threads</a>
+
+    <!-- The main thread (title, content, author) is injected here -->
+    <div id="thread-container">
+      <div class="loading">LOADING TRANSMISSION</div>
+    </div>
+
+    <!-- ===== REPLIES SECTION ===== -->
+    <div style="margin-top: 36px;">
+
+      <!-- Section header with reply count -->
+      <div class="section-label">
+        Responses <span id="reply-count">0</span>
+      </div>
+
+      <!-- Reply cards are injected here by thread.js -->
+      <div id="replies-container" class="replies-list">
+        <div class="loading">LOADING RESPONSES</div>
+      </div>
+
+      <!-- Reply form OR login prompt is injected here -->
+      <div id="reply-form-container" style="margin-top: 24px;">
+        <!-- thread.js fills this in -->
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    VOID FORUM // PHASE 1 // ALL TRANSMISSIONS MONITORED
+  </footer>
+
+  <!-- Appwrite SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@16/dist/iife/sdk.min.js"></script>
+  <!-- Our files -->
+  <script src="js/appwrite.js?v=5"></script>
+  <script src="js/auth.js?v=5"></script>
+  <script src="js/thread.js?v=5"></script>
+</body>
+</html>

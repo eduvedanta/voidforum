@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOID FORUM — All Threads</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <a href="forum.html" class="navbar-logo">
+      VOID <span>FORUM</span>
+    </a>
+    <div class="navbar-right" id="nav-right">
+      <!-- auth.js will fill this in -->
+    </div>
+  </nav>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="container">
+
+    <!-- Page header: title + optional "new thread" button -->
+    <div class="page-header">
+      <div>
+        <div class="page-title">All <span class="accent">Transmissions</span></div>
+        <div class="page-subtitle">// CLASSIFIED DISCUSSION BOARD //</div>
+      </div>
+      <!-- This button is shown by threads.js if user is logged in -->
+      <div id="header-action"></div>
+    </div>
+
+    <!-- Thread cards are rendered here by threads.js -->
+    <div id="threads-container">
+      <div class="loading">LOADING TRANSMISSIONS</div>
+    </div>
+
+  </main>
+
+  <footer>
+    VOID FORUM // PHASE 1 // ALL TRANSMISSIONS MONITORED
+  </footer>
+
+  <!-- Appwrite SDK (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@16/dist/iife/sdk.min.js"></script>
+  <!-- Our files -->
+  <script src="js/appwrite.js?v=5"></script>
+<script src="js/auth.js?v=5"></script>
+<script src="js/threads.js?v=101"></script>
+  <script>
+    // After threads.js runs and calls updateNavbar,
+    // also show "New Thread" button in the header if logged in
+    const _originalUpdateNavbar = updateNavbar;
+    window.updateNavbar = function(user) {
+      _originalUpdateNavbar(user);
+      const headerAction = document.getElementById('header-action');
+      if (headerAction && user) {
+        headerAction.innerHTML = `<a href="/create.html" class="btn btn-primary">+ New Thread</a>`;
+      }
+    };
+  </script>
+</body>
+</html>

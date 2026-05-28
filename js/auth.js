@@ -217,3 +217,50 @@ async function loadNotificationCount() {
 
   }
 }
+async function handleForgotPassword(){
+
+const email =
+document.getElementById(
+'login-email'
+).value.trim();
+
+if(!email){
+
+```
+alert(
+  'Enter your email first.'
+);
+
+return;
+```
+
+}
+
+try{
+
+```
+await account.createRecovery(
+  email,
+  'https://voidforum.xo.je/reset.html'
+);
+
+alert(
+  'Password reset link sent to your email.'
+);
+```
+
+}catch(err){
+
+```
+console.error(err);
+
+alert(
+  err.message ||
+  'Failed to send reset email.'
+);
+```
+
+}
+
+}
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
+
+<title>VOID — RESET PASSWORD</title>
+
+<link
+  rel="stylesheet"
+  href="css/style.css"
+/>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<a
+href="index.html"
+class="navbar-logo"
+
+>
+
+```
+V
+<span class="void-o small"></span>
+ID
+```
+
+  </a>
+
+</nav>
+
+<div class="auth-container">
+
+  <div class="auth-box">
+
+```
+<div class="auth-logo">
+
+  V
+  <span class="void-o small"></span>
+  ID
+
+</div>
+
+<p class="auth-subtitle">
+
+  RESET PASSWORD
+
+</p>
+
+<div class="form-group">
+
+  <label>New Password</label>
+
+  <input
+    type="password"
+    id="new-password"
+    placeholder="New password"
+  />
+
+</div>
+
+<button
+  class="btn btn-primary full-btn"
+  onclick="resetPassword()"
+>
+  UPDATE PASSWORD
+</button>
+```
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/appwrite@16/dist/iife/sdk.min.js"></script>
+
+<script src="js/appwrite.js?v=5"></script>
+
+<script>
+
+async function resetPassword(){
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+  const userId =
+    params.get('userId');
+
+  const secret =
+    params.get('secret');
+
+  const password =
+    document.getElementById(
+      'new-password'
+    ).value;
+
+  try{
+
+    await account.updateRecovery(
+      userId,
+      secret,
+      password
+    );
+
+    alert(
+      'Password updated successfully.'
+    );
+
+    window.location.href =
+      'login.html';
+
+  }catch(err){
+
+    console.error(err);
+
+    alert(
+      err.message ||
+      'Password reset failed.'
+    );
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>

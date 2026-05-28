@@ -440,22 +440,24 @@ if (
       createdAt:
         new Date().toISOString()
     },
-    [
+   [
   Permission.read(
-    Role.users()
+    Role.user(
+      currentThread.userId
+    )
   ),
 
   Permission.update(
-  Role.user(
-    currentThread.userId
-  )
-),
+    Role.user(
+      currentThread.userId
+    )
+  ),
 
-Permission.delete(
-  Role.user(
-    currentThread.userId
+  Permission.delete(
+    Role.user(
+      currentThread.userId
+    )
   )
-)
 ]
   );
 

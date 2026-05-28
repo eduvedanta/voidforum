@@ -896,3 +896,11 @@ footer {
     0 0 12px rgba(139,92,246,0.8);
 
 }
+.cursor {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

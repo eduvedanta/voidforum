@@ -446,16 +446,16 @@ if (
   ),
 
   Permission.update(
-    Role.user(
-      threadOwner.userId
-    )
-  ),
-
-  Permission.delete(
-    Role.user(
-      threadOwner.userId
-    )
+  Role.user(
+    currentThread.userId
   )
+),
+
+Permission.delete(
+  Role.user(
+    currentThread.userId
+  )
+)
 ]
   );
 

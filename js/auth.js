@@ -241,7 +241,7 @@ try{
 ```
 await account.createRecovery(
   email,
-  'https://voidforum.xo.je/reset.html'
+  'https://voidforum.vf.xo.je/reset.html'
 );
 
 alert(

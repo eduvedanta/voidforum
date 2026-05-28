@@ -78,22 +78,6 @@
           id="login-message"
           class="message hidden"
         ></div>
-        <div class="forgot-wrap">
-
-<button
-class="forgot-btn"
-onclick="handleForgotPassword()"
-
->
-
-```
-Forgot Password?
-```
-
-  </button>
-
-</div>
-
 
         <div class="form-group">
 
@@ -132,6 +116,21 @@ Forgot Password?
         </button>
 
       </div>
+         <div class="forgot-wrap">
+
+<button
+class="forgot-btn"
+onclick="handleForgotPassword()"
+
+>
+
+```
+Forgot Password?
+```
+
+  </button>
+
+</div>
 
       <!-- SIGNUP -->
       <div
@@ -350,6 +349,25 @@ Forgot Password?
       }
 
     }
+    async function handleForgotPassword() {
+  const email = document.getElementById('login-email').value.trim();
+  const messageEl = document.getElementById('login-message');
+
+  if (!email) {
+    showMessage(messageEl, 'error', 'Enter your email first.');
+    return;
+  }
+
+  try {
+    await account.createRecovery(
+      email,
+      'https://voidforum.vf.xo.je/reset.html' // your reset page URL
+    );
+    showMessage(messageEl, 'success', 'Recovery email sent!');
+  } catch (err) {
+    showMessage(messageEl, 'error', 'Failed: ' + err.message);
+  }
+}
 
     // =====================================
     // SIGNUP

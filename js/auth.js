@@ -164,59 +164,59 @@ function updateNavbar(user) {
 
 }
 
-async function loadNotificationCount() {
+// async function loadNotificationCount() {
 
-  try {
+//   try {
 
-    const user =
-      await getCurrentUser();
+//     const user =
+//       await getCurrentUser();
 
-    if (!user) return;
+//     if (!user) return;
 
-    const response =
-      await databases.listDocuments(
-        DATABASE_ID,
-        NOTIFICATIONS_COLLECTION_ID,
-        [
-          Query.equal(
-            'userId',
-            user.$id
-          ),
-          Query.equal(
-            'isRead',
-            false
-          ),
-          Query.limit(100)
-        ]
-      );
+//     const response =
+//       await databases.listDocuments(
+//         DATABASE_ID,
+//         NOTIFICATIONS_COLLECTION_ID,
+//         [
+//           Query.equal(
+//             'userId',
+//             user.$id
+//           ),
+//           Query.equal(
+//             'isRead',
+//             false
+//           ),
+//           Query.limit(100)
+//         ]
+//       );
 
-    const count =
-      response.total;
+//     const count =
+//       response.total;
 
-    const counter =
-      document.getElementById(
-        'notification-count'
-      );
+//     const counter =
+//       document.getElementById(
+//         'notification-count'
+//       );
 
-    if (!counter) return;
+//     if (!counter) return;
 
-    counter.textContent =
-      count;
+//     counter.textContent =
+//       count;
 
-    counter.style.display =
-      count > 0
-        ? 'inline-flex'
-        : 'none';
+//     counter.style.display =
+//       count > 0
+//         ? 'inline-flex'
+//         : 'none';
 
-  } catch (error) {
+//   } catch (error) {
 
-    console.error(
-      'Notification counter error:',
-      error
-    );
+//     console.error(
+//       'Notification counter error:',
+//       error
+//     );
 
-  }
-}
+//   }
+// }
 async function handleForgotPassword(){
 
 const email =

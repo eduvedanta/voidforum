@@ -938,4 +938,51 @@ text-shadow:
 0 0 12px rgba(108,99,255,0.6);
 
 }
+.vote-bar {
+
+  display:flex;
+
+  gap:16px;
+
+  margin:10px 0;
+
+  font-size:12px;
+
+  letter-spacing:1px;
+
+}
+
+.vote-up {
+
+  color:#00ff88;
+
+  cursor:pointer;
+
+  transition:.2s;
+
+}
+
+.vote-up:hover {
+
+  text-shadow:
+    0 0 10px #00ff88;
+
+}
+
+.vote-down {
+
+  color:#ff4d6d;
+
+  cursor:pointer;
+
+  transition:.2s;
+
+}
+
+.vote-down:hover {
+
+  text-shadow:
+    0 0 10px #ff4d6d;
+
+}
 

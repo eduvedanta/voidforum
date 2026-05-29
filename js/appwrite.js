@@ -19,6 +19,8 @@ const REPLIES_COLLECTION_ID =
 
 const NOTIFICATIONS_COLLECTION_ID =
   'notifications';
+const VOTES_COLLECTION_ID =
+'votes';
 
 const BUCKET_ID =
   '6a15a249002eb5c2e7fe';

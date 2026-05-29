@@ -87,19 +87,18 @@ async function submitThread() {
       DATABASE_ID,
       THREADS_COLLECTION_ID,
       ID.unique(),
-      {
-        title: title,
-        content: content,
-        mediaUrl: mediaUrl,
-        mediaType: mediaType,
-		replyCount: 0,
-        authorName: currentUser.name,
-        userId: currentUser.$id,
-        createdAt: new Date().toISOString(),
-		  	upVotes: 0,
-			downVotes: 0,
-			replyCount: 0
-      },
+     {
+  title: title,
+  content: content,
+  mediaUrl: mediaUrl,
+  mediaType: mediaType,
+  authorName: currentUser.name,
+  userId: currentUser.$id,
+  createdAt: new Date().toISOString(),
+  upVotes: 0,
+  downVotes: 0,
+  replyCount: 0
+}
       [
         Permission.read(Role.any()),
         Permission.update(Role.user(currentUser.$id)),

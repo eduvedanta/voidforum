@@ -112,6 +112,23 @@ async function loadThread() {
                 `
             : ''
         }
+		<div class="vote-bar">
+
+  <span
+    class="vote-up"
+    onclick="voteCurrentThread(1)"
+  >
+    ▲ ${thread.upVotes || 0}
+  </span>
+
+  <span
+    class="vote-down"
+    onclick="voteCurrentThread(-1)"
+  >
+    ▼ ${thread.downVotes || 0}
+  </span>
+
+</div>
 
         <div class="thread-meta">
 
@@ -656,5 +673,18 @@ function formatDate(dateString) {
     new Date(dateString);
 
   return date.toLocaleString();
+
+}
+async function voteCurrentThread(
+  voteType
+) {
+
+  await vote(
+    currentThreadId,
+    'thread',
+    voteType
+  );
+
+  loadThread();
 
 }

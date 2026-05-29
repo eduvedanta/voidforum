@@ -416,28 +416,21 @@ async function submitReply() {
   try {
 
     // Create reply
-    await databases.createDocument(
-      DATABASE_ID,
-      REPLIES_COLLECTION_ID,
-      ID.unique(),
-      {
-        threadId: currentThreadId,
-        content: content,
-        authorName: currentUser.name,
-        userId: currentUser.$id,
-        createdAt: new Date().toISOString()
-      },
-      [
-        Permission.read(Role.any()),
-        Permission.update(
-          Role.user(currentUser.$id)
-        ),
-        Permission.delete(
-          Role.user(currentUser.$id)
-        )
-      ]
-    );
+   {
+  threadId: currentThreadId,
 
+  content: content,
+
+  authorName: currentUser.name,
+
+  userId: currentUser.$id,
+
+  createdAt: new Date().toISOString(),
+
+  upVotes: 0,
+
+  downVotes: 0
+}
     // =====================================
     // INCREMENT REPLY COUNT
     // =====================================

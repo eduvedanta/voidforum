@@ -160,6 +160,29 @@ function createThreadCard(thread) {
               `
           : ''
       }
+      <div class="vote-bar">
+
+  <span
+    class="vote-up"
+    onclick="
+      event.stopPropagation();
+      voteThread('${thread.$id}',1)
+    "
+  >
+    ▲ ${thread.upVotes || 0}
+  </span>
+
+  <span
+    class="vote-down"
+    onclick="
+      event.stopPropagation();
+      voteThread('${thread.$id}',-1)
+    "
+  >
+    ▼ ${thread.downVotes || 0}
+  </span>
+
+</div>
 
       <div class="thread-card-meta">
 

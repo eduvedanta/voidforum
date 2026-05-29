@@ -132,7 +132,7 @@ function updateNavbar(user) {
       href="notifications.html"
       class="nav-link notification-link"
     >
-      ⬢
+      🔔
 
       <span
         id="notification-count"

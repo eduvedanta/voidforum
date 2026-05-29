@@ -415,7 +415,6 @@ async function submitReply() {
 
   try {
 
-    // Create reply
    // Create reply
 await databases.createDocument(
   DATABASE_ID,

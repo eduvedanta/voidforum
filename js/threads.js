@@ -306,3 +306,25 @@ function getProfileColor(username) {
   ];
 
 }
+async function voteThread(
+  threadId,
+  voteType
+) {
+
+  try {
+
+    await vote(
+      threadId,
+      'thread',
+      voteType
+    );
+
+    loadThreads();
+
+  } catch(error) {
+
+    console.error(error);
+
+  }
+
+}

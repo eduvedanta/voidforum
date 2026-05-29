@@ -134,10 +134,10 @@ async function vote(
     );
 
   let upVotes =
-    target.upVotes || 0;
+  Number(target.upVotes ?? 0);
 
-  let downVotes =
-    target.downVotes || 0;
+let downVotes =
+  Number(target.downVotes ?? 0);
 
   // REMOVE SAME VOTE
   if (

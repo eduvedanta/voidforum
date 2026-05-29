@@ -95,7 +95,10 @@ async function submitThread() {
 		replyCount: 0,
         authorName: currentUser.name,
         userId: currentUser.$id,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+		  	upVotes: 0,
+			downVotes: 0,
+			replyCount: 0
       },
       [
         Permission.read(Role.any()),

@@ -463,50 +463,50 @@ await databases.createDocument(
 // CREATE NOTIFICATION
 // =====================================
 
-if (
-  currentThread.userId !==
-  currentUser.$id
-) {
+// if (
+//   currentThread.userId !==
+//   currentUser.$id
+// ) {
 
-  await databases.createDocument(
-    DATABASE_ID,
-    NOTIFICATIONS_COLLECTION_ID,
-    ID.unique(),
-    {
-      userId: currentThread.userId,
+//   await databases.createDocument(
+//     DATABASE_ID,
+//     NOTIFICATIONS_COLLECTION_ID,
+//     ID.unique(),
+//     {
+//       userId: currentThread.userId,
 
-      message:
-        `${currentUser.name} replied to your thread`,
+//       message:
+//         `${currentUser.name} replied to your thread`,
 
-      threadId: currentThreadId,
+//       threadId: currentThreadId,
 
-      isRead: false,
+//       isRead: false,
 
-      createdAt:
-        new Date().toISOString()
-    },
-   [
-  Permission.read(
-    Role.user(
-      currentThread.userId
-    )
-  ),
+//       createdAt:
+//         new Date().toISOString()
+//     },
+//    [
+//   Permission.read(
+//     Role.user(
+//       currentThread.userId
+//     )
+//   ),
 
-  Permission.update(
-    Role.user(
-      currentThread.userId
-    )
-  ),
+//   Permission.update(
+//     Role.user(
+//       currentThread.userId
+//     )
+//   ),
 
-  Permission.delete(
-    Role.user(
-      currentThread.userId
-    )
-  )
-]
-  );
+//   Permission.delete(
+//     Role.user(
+//       currentThread.userId
+//     )
+//   )
+// ]
+//   );
 
-}
+// }
 
     // Clear textarea
     document.getElementById(

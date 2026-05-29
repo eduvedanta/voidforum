@@ -275,6 +275,33 @@ async function loadReplies() {
             }
 
           </div>
+		  <div class="vote-bar">
+
+  <span
+    class="vote-up"
+    onclick="
+      voteReply(
+        '${reply.$id}',
+        1
+      )
+    "
+  >
+    ▲ ${reply.upVotes || 0}
+  </span>
+
+  <span
+    class="vote-down"
+    onclick="
+      voteReply(
+        '${reply.$id}',
+        -1
+      )
+    "
+  >
+    ▼ ${reply.downVotes || 0}
+  </span>
+
+</div>
 
           <div class="reply-content">
             ${escapeHtml(reply.content)}
@@ -688,3 +715,18 @@ async function voteCurrentThread(
   loadThread();
 
 }
+async function voteReply(
+  replyId,
+  voteType
+) {
+
+  await vote(
+    replyId,
+    'reply',
+    voteType
+  );
+
+  loadReplies();
+
+}
+

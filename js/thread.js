@@ -484,30 +484,10 @@ if (
 
       createdAt:
         new Date().toISOString()
-    },
-   [
-  Permission.read(
-    Role.user(
-      currentThread.userId
-    )
-  ),
-
-  Permission.update(
-    Role.user(
-      currentThread.userId
-    )
-  ),
-
-  Permission.delete(
-    Role.user(
-      currentThread.userId
-    )
-  )
-]
+    }
   );
 
 }
-
     // Clear textarea
     document.getElementById(
       'reply-content'

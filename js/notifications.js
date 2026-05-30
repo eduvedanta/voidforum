@@ -46,7 +46,25 @@ async function loadNotifications() {
       );
 
     const notifications =
-      response.documents;
+  response.documents;
+
+// Mark notifications as read
+for (const notif of notifications) {
+
+  if (!notif.isRead) {
+
+    await databases.updateDocument(
+      DATABASE_ID,
+      NOTIFICATIONS_COLLECTION_ID,
+      notif.$id,
+      {
+        isRead: true
+      }
+    );
+
+  }
+
+}
 
     if (
       notifications.length === 0

@@ -146,7 +146,7 @@ function updateNavbar(user) {
 
     <span
   class="nav-user"
-  style="color:#00d4ff;"
+  style="color:#00ff99;"
 >
   ${user.name}
 </span>

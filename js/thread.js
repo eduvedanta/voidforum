@@ -459,9 +459,9 @@ await databases.createDocument(
           (currentThread.replyCount ?? 0) + 1
       }
     );
-	=====================================
-CREATE NOTIFICATION
-=====================================
+// =====================================
+// CREATE NOTIFICATION
+// =====================================
 
 if (
   currentThread.userId !==

@@ -94,7 +94,7 @@ async function requireAuth() {
   return user;
 }
 
-function updateNavbar(user) {
+async function updateNavbar(user) {
 
   const navRight =
     document.getElementById(
@@ -102,6 +102,8 @@ function updateNavbar(user) {
     );
 
   if (!navRight) return;
+  const onlineCount =
+  await getOnlineUserCount();
 
   if (!user) {
 
@@ -127,6 +129,12 @@ function updateNavbar(user) {
     >
       Forum
     </a>
+    <span
+  class="nav-link"
+  style="color:#00ff99;"
+>
+  🟢 ${onlineCount} Online
+</span>
 
     <a
       href="notifications.html"
@@ -261,6 +269,46 @@ alert(
 ```
 
 }
+
+}
+async function getOnlineUserCount() {
+
+  try {
+
+    const response =
+      await databases.listDocuments(
+        DATABASE_ID,
+        ACTIVE_USERS_COLLECTION_ID,
+        [
+          Query.limit(100)
+        ]
+      );
+
+    const fiveMinutesAgo =
+      Date.now() - (5 * 60 * 1000);
+
+    const onlineUsers =
+      response.documents.filter(user => {
+
+        return (
+          new Date(user.lastSeen)
+            .getTime() > fiveMinutesAgo
+        );
+
+      });
+
+    return onlineUsers.length;
+
+  } catch(error) {
+
+    console.error(
+      'Online count error:',
+      error
+    );
+
+    return 0;
+
+  }
 
 }
 

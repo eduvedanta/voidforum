@@ -154,7 +154,7 @@ async function updateNavbar(user) {
 
     <span
   class="nav-user"
-  style="color:#00ff99;"
+  style="color:#26b3f0;"
 >
   ${user.name}
 </span>

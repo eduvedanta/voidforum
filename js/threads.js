@@ -328,3 +328,68 @@ async function voteThread(
   }
 
 }
+// =========================================
+// UPDATE ACTIVE USER
+// =========================================
+async function updateActiveUser(user) {
+
+  if (!user) return;
+
+  try {
+
+    const existing =
+      await databases.listDocuments(
+        DATABASE_ID,
+        ACTIVE_USERS_COLLECTION_ID,
+        [
+          Query.equal(
+            'userId',
+            user.$id
+          )
+        ]
+      );
+
+    // User already exists
+    if (
+      existing.documents.length > 0
+    ) {
+
+      await databases.updateDocument(
+        DATABASE_ID,
+        ACTIVE_USERS_COLLECTION_ID,
+        existing.documents[0].$id,
+        {
+          lastSeen:
+            new Date().toISOString()
+        }
+      );
+
+    }
+
+    // First visit
+    else {
+
+      await databases.createDocument(
+        DATABASE_ID,
+        ACTIVE_USERS_COLLECTION_ID,
+        ID.unique(),
+        {
+          userId: user.$id,
+          username: user.name,
+          lastSeen:
+            new Date().toISOString()
+        }
+      );
+
+    }
+
+  } catch(error) {
+
+    console.error(
+      'Active user error:',
+      error
+    );
+
+  }
+
+}

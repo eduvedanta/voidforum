@@ -14,7 +14,7 @@ document.addEventListener(
 
     await updateActiveUser(user);
 
-    updateNavbar(user);
+    await updateNavbar(user);
 
     // UPDATE EVERY 1 MINUTE
     if (user) {

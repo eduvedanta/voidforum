@@ -16,9 +16,19 @@ document.addEventListener(
 
     updateNavbar(user);
 
+    // UPDATE EVERY 1 MINUTE
+    if (user) {
+
+      setInterval(() => {
+
+        updateActiveUser(user);
+
+      }, 60000);
+
+    }
+
     await loadThreads();
 
-    // REALTIME THREAD UPDATES
     client.subscribe(
       `databases.${DATABASE_ID}.collections.${THREADS_COLLECTION_ID}.documents`,
       () => {

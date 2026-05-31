@@ -12,6 +12,8 @@ document.addEventListener(
     const user =
       await getCurrentUser();
 
+    await updateActiveUser(user);
+
     updateNavbar(user);
 
     await loadThreads();
